@@ -1,45 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f2f2f2;
+    padding: 10px;
 }
 
-.container{
+.container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px; /* Ensures container doesn't get too wide on larger screens */
 }
 
-h1{
+h1 {
     text-align: center;
     font-weight: 500;
+    font-size: 1.5rem;
 }
 
-.board{
-    width: 400px;
+.board {
+    width: 100%;
+    max-width: 400px;
     margin: 20px auto;
 }
 
-.buttons{
+.buttons {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
 }
 
-button{
+button {
     color: #fff;
     background-color: #000;
     border: none;
@@ -49,19 +55,49 @@ button{
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 5px; /* Adds space around buttons for smaller screens */
 }
 
-button:hover{
+button:hover {
     background-color: #434343;
 }
 
-.move-history{
+.move-history {
     margin-top: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     height: 100px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     overflow-y: scroll;
     background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2rem; /* Smaller font size for titles on mobile */
+    }
+
+    .container {
+        padding: 1rem; /* Reduced padding for smaller screens */
+    }
+
+    .board {
+        max-width: 100%;
+        width: 90%; /* Board takes most of the screen width on mobile */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+    }
+
+    button {
+        width: 100%; /* Buttons take full width on smaller screens */
+        margin-bottom: 10px;
+    }
+
+    .move-history {
+        width: 100%;
+    }
 }
