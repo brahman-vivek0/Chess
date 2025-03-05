@@ -14,35 +14,41 @@ body {
     justify-content: center;
     background-color: #f2f2f2;
     padding: 10px;
+    font-size: 16px;
 }
 
 .container {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px; /* Ensures container doesn't get too wide on larger screens */
+    max-width: 420px; /* Maximum width of container */
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Adjusted font size */
+    margin-bottom: 1.5rem; /* Space below the title */
 }
 
 .board {
     width: 100%;
+    height: 100%;
     max-width: 400px;
     margin: 20px auto;
+    aspect-ratio: 1; /* Maintains a square aspect ratio */
+    display: block;
 }
 
 .buttons {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
-    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    flex-wrap: wrap; /* Ensures buttons wrap on small screens */
 }
 
 button {
@@ -55,7 +61,7 @@ button {
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 5px; /* Adds space around buttons for smaller screens */
+    margin-bottom: 10px; /* Space between buttons */
 }
 
 button:hover {
@@ -72,32 +78,58 @@ button:hover {
     max-width: 400px;
     overflow-y: scroll;
     background-color: #f2f2f2;
+    margin-bottom: 10px; /* Space at the bottom */
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.2rem; /* Smaller font size for titles on mobile */
+    .container {
+        padding: 1rem; /* Reduce padding on mobile */
+        max-width: 90%; /* Container takes up most of the screen on mobile */
     }
 
-    .container {
-        padding: 1rem; /* Reduced padding for smaller screens */
+    h1 {
+        font-size: 1.4rem; /* Adjust font size for smaller screens */
+        margin-bottom: 1rem; /* Reduced margin */
     }
 
     .board {
-        max-width: 100%;
-        width: 90%; /* Board takes most of the screen width on mobile */
+        max-width: 100%; /* Allow the board to take the full width */
+        width: 100%; /* Ensure board occupies full width */
+        margin: 0 auto;
     }
 
     .buttons {
         flex-direction: column; /* Stack buttons vertically on mobile */
+        gap: 10px;
+        width: 100%; /* Make buttons take up full width */
     }
 
     button {
-        width: 100%; /* Buttons take full width on smaller screens */
-        margin-bottom: 10px;
+        width: 100%; /* Full-width buttons on mobile */
     }
 
     .move-history {
-        width: 100%;
+        width: 100%; /* Full-width move history on mobile */
+        height: 120px; /* Increased height for mobile screens */
+    }
+}
+
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.3rem; /* Slightly smaller font for very small screens */
+    }
+
+    .board {
+        width: 100%; /* Ensure board is fully responsive on smaller screens */
+        max-width: 100%;
+    }
+
+    .buttons {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    button {
+        width: 100%; /* Full-width buttons for the smallest screens */
     }
 }
